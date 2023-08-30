@@ -21,11 +21,11 @@ contract Robotics is ERC721A {
         owner = msg.sender;
     }
     modifier onlyOwner() {
-        require(msg.sender == owner, "Can be performed only by the owner.");
+        require(msg.sender == owner, "Unauthorised Access");
         _;
     }
     function mint(uint256 quantity) external payable onlyOwner {
-        require(totalSupply() + quantity <= maxQuantity,"You can not mint more than 5 NFTs"
+        require(totalSupply() + quantity <= maxQuantity,"Limit is of 5 NFT"
         );
         _mint(msg.sender, quantity);
     }
